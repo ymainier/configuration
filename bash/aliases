@@ -1,0 +1,52 @@
+# vi: ft=sh
+alias l='ls'
+alias la='ls -a'
+alias ll='ls -l'
+alias lla='ls -la'
+
+# Vagrant
+alias v=vagrant
+alias vu='vagrant up'
+alias vs='vagrant suspend'
+alias vd='vagrant destroy'
+alias vssh='v ssh -- -t "cd /vagrant && /bin/bash --login"'
+alias vk='kill $(ps -eopid,command|grep -v grep|grep "ssh vagrant"|cut -f1 -d " ")'
+alias vrebuild='vd -f && vu && vssh'
+
+# Mac
+alias o=open
+alias t="o -a Terminal"
+alias c="o -a Google\ Chrome"
+
+# Git
+alias g='git'
+alias gs='g status'
+alias ga='g add'
+alias gd='g diff'
+alias gc='g commit -v'
+alias gps='g push'
+alias gpl='g pull'
+alias gl='g l'
+alias gm='g mergetool --tool=gvimdiff2'
+
+# SVN
+alias s=svn
+alias ss='s status'
+alias sc='s commit'
+alias sd='s diff | vim "+set nonumber" -R -'
+alias sl='s log 2>/dev/null|head -20'
+alias sll='s log|less'
+
+# Misc
+alias flushdns="sudo killall -HUP mDNSResponder"
+alias gr=grunt
+
+function m {
+	if [[ $# == 1 && -d "$1" && -r "$1" ]]; then
+		pushd $1 1>/dev/null
+		mvim .
+		popd 1>/dev/null
+	else
+		mvim "$@"
+	fi
+}

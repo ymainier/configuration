@@ -1,0 +1,70 @@
+# Prototype
+snippet proto
+	prototype.${1} = function (${3}) {
+		${3}
+	};
+# Function
+snippet fun
+	function ${1}(${2}) {
+		${3}
+	}
+# Anonymous Function
+snippet f
+	function (${1}) {${2}}
+# Object Method
+snippet :f
+	${1} : function (${2}) {
+		${4}
+	}${3}
+# if
+snippet if
+	if (${1}) {
+		${2}
+	}
+# if ... else
+snippet ife
+	if (${1}) {
+		${2}
+	} else {
+		${3}
+	}
+# tertiary conditional
+snippet ?
+	${1} ? ${2} : ${3}
+# switch
+snippet switch
+	switch(${1}) {
+		case '${3}':
+			${4}
+			break;
+		${5}
+		default:
+			${2}
+			break;
+	}
+# case
+snippet case
+	case '${1}':
+		${2}
+		break;
+	${3}
+# for (...) {...}
+snippet for
+	for (${1}) {
+		${2}
+	}
+# while (...) {...}
+snippet wh
+	while (${1}) {
+		${2}
+	}
+# Jasmine describe
+snippet des
+	describe("${1}", function () {
+		${2}
+	});
+# Jasmine it
+snippet it
+	it("${1}", function () {
+		${2}
+	});

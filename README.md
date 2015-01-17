@@ -13,7 +13,8 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 - nvm
 ```shell
 brew install nvm
-nvm install 0.10
+nvm install stable
+nvm alias default stable
 ```
 - macvim
 ```shell

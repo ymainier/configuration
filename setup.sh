@@ -10,17 +10,20 @@ function link_if_not_exists () {
 	fi
 }
 
+echo "Bash config ..."
 link_if_not_exists $CONFIGURATION_DIR/bashrc ~/.bashrc
+echo "... done"
 
-# git config
+echo "Git config..."
 git config --global alias.l "log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'"
 git config --global color.ui true
 git config --global push.default simple
+echo "... done"
 
-# Vim
+echo "Vim config ..."
 link_if_not_exists $CONFIGURATION_DIR/vimrc ~/.vimrc
 
-mkdir -p ~/.vim/autoload ~/.vim/bundle
+mkdir -p ~/.vim/{autoload,bundle,_backup,_temp}
 
 ## Pathogen
 curl -LSso ~/.vim/autoload/pathogen.vim https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
@@ -28,8 +31,10 @@ curl -LSso ~/.vim/autoload/pathogen.vim https://raw.githubusercontent.com/tpope/
 ## plugins
 while read bundle; do
 	cd ~/.vim/bundle
-	git clone -q $bundle
+	echo "  installing ${bundle} plugin"
+	git clone -q $bundle 2>&1
 done < ~/configuration/vim/bundles.txt
 
 ## snippets
 link_if_not_exists $CONFIGURATION_DIR/vim/snippets/ ~/.vim/snippets
+echo "... done"

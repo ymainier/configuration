@@ -7,7 +7,8 @@ fi
 eval "$(rbenv init -)"
 
 ## nvm
-source ~/.nvm/nvm.sh
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
 
 ## Git bash completion and prompt customization
 XCODE_ROOT=$(xcode-select -p)

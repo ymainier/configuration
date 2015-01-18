@@ -133,6 +133,42 @@ let g:snippets_dir= '~/.vim/snippets'
 "" NERDTree
 ""
 
+set autoread
+let NERDTreeHijackNetrw = 0
+
+augroup AuNERDTreeCmd
+autocmd AuNERDTreeCmd VimEnter * call s:CdIfDirectory(expand("<amatch>"))
+
+" If the parameter is a directory, cd into it
+function s:CdIfDirectory(directory)
+	let explicitDirectory = isdirectory(a:directory)
+	let directory = explicitDirectory || empty(a:directory)
+
+	if explicitDirectory
+		exe "cd " . fnameescape(a:directory)
+	endif
+
+	" Allows reading from stdin
+	" ex: git diff | mvim -R -
+	if strlen(a:directory) == 0
+		return
+	endif
+
+	if directory
+		NERDTree
+		wincmd p
+		bd
+	endif
+
+	if explicitDirectory
+		wincmd p
+	endif
+endfunction
+
+""
+"" Misc
+""
+
 " Place the cursor on its previous position in this file
 function! ResCur()
 	if line("'\"") <= line("$")

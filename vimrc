@@ -179,3 +179,8 @@ function UpdateJsHintConf()
 endfunction
 
 au BufEnter * call UpdateJsHintConf()
+
+" Load a local configuration
+if filereadable(glob("~/.vimrc.local")) 
+    source ~/.vimrc.local
+endif

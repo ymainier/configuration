@@ -10,7 +10,7 @@ alias vu='vagrant up'
 alias vs='vagrant suspend'
 alias vd='vagrant destroy'
 alias vssh='v ssh -- -t "cd /vagrant && /bin/bash --login"'
-alias vk='kill $(ps -eopid,command|grep -v grep|grep "ssh vagrant"|cut -f1 -d " ")'
+alias vk='kill $(ps -eopid,command|grep -v grep|grep "ssh vagrant"|sed "s/^ *//"|cut -f1 -d " ") 2>/dev/null'
 alias vrebuild='vd -f && vu && vssh'
 
 # Mac

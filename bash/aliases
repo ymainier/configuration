@@ -28,6 +28,7 @@ alias gps='g push'
 alias gpl='g pull'
 alias gl='g l'
 alias gm='g mergetool --tool=gvimdiff2'
+alias gg='git grep'
 
 # SVN
 alias s=svn

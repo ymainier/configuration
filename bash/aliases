@@ -41,6 +41,7 @@ alias sll='s log|less'
 # Misc
 alias flushdns="sudo killall -HUP mDNSResponder"
 alias gr=grunt
+alias ip='ifconfig en0|grep inet|grep -v inet6|cut -d" " -f2'
 
 function m {
 	if [[ $# == 1 && -d "$1" && -r "$1" ]]; then

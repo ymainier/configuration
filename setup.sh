@@ -6,7 +6,7 @@ function link_if_not_exists () {
 	if [ -f $2 ];then
 		echo >&2 "$2 already exists"
 	else
-		ln -s $1 $2
+		ln -shf $1 $2
 	fi
 }
 
@@ -36,5 +36,6 @@ while read bundle; do
 done < ~/configuration/vim/bundles.txt
 
 ## snippets
-link_if_not_exists $CONFIGURATION_DIR/vim/snippets/ ~/.vim/snippets
+link_if_not_exists $CONFIGURATION_DIR/vim/snippets ~/.vim/snippets
+link_if_not_exists $CONFIGURATION_DIR/vim/after ~/.vim/after
 echo "... done"

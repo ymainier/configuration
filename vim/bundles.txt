@@ -11,3 +11,4 @@ https://github.com/pangloss/vim-javascript
 https://github.com/edsono/vim-matchit
 https://github.com/garbas/vim-snipmate
 https://github.com/derekwyatt/vim-scala
+https://github.com/mustache/vim-mustache-handlebars

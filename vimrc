@@ -116,6 +116,12 @@ if has("autocmd")
 endif
 
 ""
+"" syntastic
+""
+
+let g:syntastic_javascript_checkers = ['jshint', 'jscs']
+
+""
 "" CtrlP
 ""
 

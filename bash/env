@@ -33,4 +33,6 @@ export LESS_TERMCAP_us=$(printf "\e[0;36;04m")
 
 # PATH
 export PATH=/usr/local/sbin:/usr/local/bin:~/bin:$PATH
-export PATH="$PATH:$HOME/.rbenv/bin"
+if $(which rbenv>/dev/null); then
+	export PATH="$PATH:$HOME/.rbenv/bin"
+fi

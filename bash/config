@@ -4,7 +4,9 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
 fi
 
 ## rbenv
-eval "$(rbenv init -)"
+if $(which rbenv>/dev/null); then
+	eval "$(rbenv init -)"
+fi
 
 ## nvm
 export NVM_DIR=~/.nvm

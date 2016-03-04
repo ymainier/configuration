@@ -30,7 +30,8 @@ alias gl='g l'
 alias gm='g mergetool --tool=gvimdiff2'
 alias gg='g grep'
 alias gr='g rebase'
-alias groi='gr -i origin/integ'
+alias groi='gr origin/integ'
+alias ggf='g ls-files|grep --color=auto'
 
 # SVN
 alias s=svn

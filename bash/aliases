@@ -32,6 +32,9 @@ alias gg='g grep'
 alias gr='g rebase'
 alias groi='gr origin/integ'
 alias ggf='g ls-files|grep --color=auto'
+alias gch='g checkout'
+alias gchi='gch integ'
+alias gchb='gch -b'
 
 # SVN
 alias s=svn

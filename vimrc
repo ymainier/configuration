@@ -145,6 +145,11 @@ let NERDTreeHijackNetrw = 0
 augroup AuNERDTreeCmd
 autocmd AuNERDTreeCmd VimEnter * call s:CdIfDirectory(expand("<amatch>"))
 
+""
+"" vim-jsx
+""
+let g:jsx_ext_required = 0
+
 " If the parameter is a directory, cd into it
 function s:CdIfDirectory(directory)
 	let explicitDirectory = isdirectory(a:directory)

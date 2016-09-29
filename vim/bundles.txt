@@ -1,5 +1,5 @@
 https://github.com/mileszs/ack.vim
-https://github.com/kien/ctrlp.vim
+https://github.com/ctrlpvim/ctrlp.vim
 https://github.com/scrooloose/nerdtree
 https://github.com/ervandew/supertab
 https://github.com/scrooloose/syntastic.git

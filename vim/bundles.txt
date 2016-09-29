@@ -1,5 +1,4 @@
 https://github.com/mileszs/ack.vim
-https://github.com/ctrlpvim/ctrlp.vim
 https://github.com/scrooloose/nerdtree
 https://github.com/ervandew/supertab
 https://github.com/scrooloose/syntastic.git
@@ -13,3 +12,7 @@ https://github.com/garbas/vim-snipmate
 https://github.com/derekwyatt/vim-scala
 https://github.com/mustache/vim-mustache-handlebars
 https://github.com/mxw/vim-jsx.git
+https://github.com/ctrlpvim/ctrlp.vim
+https://github.com/tpope/vim-fugitive
+https://github.com/vim-airline/vim-airline
+https://github.com/airblade/vim-gitgutter

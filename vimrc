@@ -11,6 +11,7 @@ set encoding=utf-8  " Set default encoding to UTF-8
 set cursorline      " Highlight the current line
 syntax enable       " Turn on syntax highlighting allowing local overrides
 let mapleader = ","
+set updatetime=250
 
 ""
 "" Appearance
@@ -83,12 +84,6 @@ set directory^=~/.vim/_temp//   " where to put swap files.
 
 if has("statusline") && !&cp
 	set laststatus=2 " always show the status bar
-
-	" Start the status line
-	set statusline=%f\ %m\ %r\ 
-	set statusline+=Line:%l/%L[%p%%]\ 
-	set statusline+=Col:%v\ 
-	set statusline+=Buf:#%n\ 
 endif
 
 "

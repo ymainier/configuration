@@ -135,10 +135,8 @@ let g:snippets_dir= '~/.vim/snippets'
 ""
 
 set autoread
-let NERDTreeHijackNetrw = 0
-
-augroup AuNERDTreeCmd
-autocmd AuNERDTreeCmd VimEnter * call s:CdIfDirectory(expand("<amatch>"))
+let g:NERDTreeDirArrowExpandable = "▸"
+let g:NERDTreeDirArrowCollapsible = "▾"
 
 ""
 "" vim-jsx

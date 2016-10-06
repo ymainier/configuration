@@ -193,6 +193,8 @@ augroup END
 
 " Ack
 map <leader>/ :Ack 
+let g:ackhighlight = 1
+let g:ack_autoclose = 1
 " commentary
 nmap <D-/> gcc
 vmap <D-/> gc

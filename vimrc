@@ -71,6 +71,9 @@ set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
 " Disable temp and backup files
 set wildignore+=*.swp,*~,._*
 
+" Disable node_modules
+set wildignore+=node_modules
+
 ""
 "" Backup and swap files
 ""

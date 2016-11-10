@@ -28,10 +28,10 @@ endif
 ""
 
 set nowrap                      " don't wrap lines
-set tabstop=4                   " a tab is four spaces
-set shiftwidth=4                " an autoindent (with <<) is four spaces
-set softtabstop=4
-set noexpandtab                 " use tabs, no space
+set tabstop=2                   " a tab is 2 spaces
+set shiftwidth=2                " an autoindent (with <<) is 2 spaces
+set softtabstop=2
+set expandtab                   " use spaces, no tabs
 set list                        " Show invisible characters
 set backspace=indent,eol,start  " backspace through everything in insert mode
 

@@ -2,10 +2,10 @@
 snippet proto
 	prototype.${1} = function (${3}) {
 		${3}
-	};
+	}
 # Function
 snippet fun
-	function ${1}(${2}) {
+	function ${1} (${2}) {
 		${3}
 	}
 # Anonymous Function
@@ -13,7 +13,7 @@ snippet f
 	function (${1}) {${2}}
 # Object Method
 snippet :f
-	${1} : function (${2}) {
+	${1}: function (${2}) {
 		${4}
 	}${3}
 # if
@@ -36,17 +36,17 @@ snippet switch
 	switch(${1}) {
 		case '${3}':
 			${4}
-			break;
+			break
 		${5}
 		default:
 			${2}
-			break;
+			break
 	}
 # case
 snippet case
 	case '${1}':
 		${2}
-		break;
+		break
 	${3}
 # for (...) {...}
 snippet for
@@ -58,13 +58,23 @@ snippet wh
 	while (${1}) {
 		${2}
 	}
-# Jasmine describe
+# Mocha describe
 snippet des
-	describe("${1}", function () {
+	describe('${1}', function () {
 		${2}
-	});
-# Jasmine it
+	})
+# Mocha it
 snippet it
-	it("${1}", function () {
+	it('${1}', function () {
 		${2}
-	});
+	})
+# Mocha beforeEach
+snippet bef
+	beforeEach(function () {
+		${1}
+	})
+# Mocha afterEach
+snippet aft
+	aftereEach(function () {
+		${1}
+	})

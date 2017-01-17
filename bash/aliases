@@ -35,10 +35,12 @@ alias ggf='g ls-files|grep --color=auto'
 alias gch='g checkout'
 alias gchi='gch integ'
 alias gchb='gch -b'
+alias goops='gc -a --amend --no-edit'
 function gpss {
   local BRANCH=$(git rev-parse --abbrev-ref HEAD)
   gps --set-upstream origin $BRANCH
 }
+
 
 # SVN
 alias s=svn

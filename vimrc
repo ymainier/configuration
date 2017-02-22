@@ -20,7 +20,7 @@ set updatetime=250
 set background=dark
 colorscheme solarized
 if has('gui_running')
-	set guifont=Monaco:h13
+	set guifont=Monaco:h14
 endif
 
 ""

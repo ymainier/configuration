@@ -7,7 +7,6 @@ https://github.com/MarcWeber/vim-addon-mw-utils.git
 https://github.com/altercation/vim-colors-solarized
 https://github.com/tpope/vim-commentary
 https://github.com/pangloss/vim-javascript
-https://github.com/edsono/vim-matchit
 https://github.com/garbas/vim-snipmate
 https://github.com/derekwyatt/vim-scala
 https://github.com/mustache/vim-mustache-handlebars

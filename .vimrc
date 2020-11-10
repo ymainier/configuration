@@ -2,8 +2,6 @@
 "" Basic Setup
 ""
 
-execute pathogen#infect()
-
 set nocompatible    " Use vim, no vi defaults
 set number          " Show line numbers
 set ruler           " Show line and column number
@@ -18,7 +16,7 @@ set updatetime=250
 ""
 
 set background=dark
-colorscheme solarized
+" colorscheme solarized
 if has('gui_running')
 	set guifont=Monaco:h14
 endif
@@ -114,66 +112,6 @@ if has("autocmd")
 endif
 
 ""
-"" syntastic
-""
-
-let g:syntastic_javascript_checkers = ['jshint', 'jscs']
-
-""
-"" CtrlP
-""
-
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_reuse_window = 'netrw\|help\|quickfix'
-
-""
-"" snipmate
-""
-
-" Snippets directory
-let g:snippets_dir= '~/.vim/snippets'
-
-""
-"" NERDTree
-""
-
-set autoread
-let g:NERDTreeDirArrowExpandable = "▸"
-let g:NERDTreeDirArrowCollapsible = "▾"
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-""
-"" vim-jsx
-""
-let g:jsx_ext_required = 0
-
-" If the parameter is a directory, cd into it
-function s:CdIfDirectory(directory)
-	let explicitDirectory = isdirectory(a:directory)
-	let directory = explicitDirectory || empty(a:directory)
-
-	if explicitDirectory
-		exe "cd " . fnameescape(a:directory)
-	endif
-
-	" Allows reading from stdin
-	" ex: git diff | mvim -R -
-	if strlen(a:directory) == 0
-		return
-	endif
-
-	if directory
-		NERDTree
-		wincmd p
-		bd
-	endif
-
-	if explicitDirectory
-		wincmd p
-	endif
-endfunction
-
-""
 "" Misc
 ""
 
@@ -189,20 +127,6 @@ augroup resCur
 	autocmd!
 	autocmd BufWinEnter * call ResCur()
 augroup END
-
-""
-"" Mappings
-""
-
-" Ack
-map <leader>/ :Ack 
-let g:ackhighlight = 1
-let g:ack_autoclose = 1
-" commentary
-nmap <D-/> gcc
-vmap <D-/> gc
-" NERDTree
-nnoremap <f2> :NERDTreeToggle<cr>
 
 " Load a local configuration
 if filereadable(glob("~/.vimrc.local")) 

@@ -1,0 +1,61 @@
+[alias]
+	a = add
+	b = branch
+	c = commit -v
+	ch = checkout
+	chb = checkout -b
+	d = diff
+	f = fetch
+	fp = fetch -p
+	g = grep
+	gf = ! git ls-files|grep --color=auto
+	l = log -20 --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+	ll = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+	oops = commit --amend --no-edit
+	pl = pull
+	ps = push
+	pss = "!git push --set-upstream origin $(git branch --show-current)"
+	r = rebase
+	rom = rebase origin/master
+	s = status -s
+	sh = show
+	st = stash
+[color]
+	ui = true
+[core]
+	editor = code --wait
+	whitespace = -trailing-space
+[diff]
+	# Use better, descriptive initials (c, i, w) instead of a/b.
+	mnemonicPrefix = true
+	# Show renames/moves as such
+	renames = true
+	# When using --word-diff, assume --word-diff-regex=.
+	wordRegex = .
+	# Display submodule-related information (commit listings)
+	submodule = log
+	# Use VSCode as default diff tool when running `git diff-tool`
+	tool = vscode
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+[fetch]
+	# Auto-fetch submodule changes (sadly, won't auto-update)
+	recurseSubmodules = on-demand
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	process = git-lfs filter-process
+	required = true
+	smudge = git-lfs smudge -- %f
+[grep]
+	break = true
+	heading = true
+	lineNumber = true
+	# Consider most regexes to be ERE
+	extendedRegexp = true
+[pull]
+	rebase = merges
+[push]
+	default = upstream
+[user]
+	email = yann.mainier@gmail.com
+	name = Yann Mainier

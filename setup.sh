@@ -29,7 +29,7 @@ function brew_cask_install () {
 echo "Copying config files..."
 FILES=(.zshrc .p10k.zsh .gitconfig .tmux.conf .vimrc)
 for file in ${FILES[@]}; do
-  link_if_not_exists $CONFIGURATION_DIR/.zshrc ~/.zshrc
+  link_if_not_exists $CONFIGURATION_DIR/$file ~/$file
 done
 
 echo "Installing stuff..."

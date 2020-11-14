@@ -14,7 +14,7 @@ if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 fi
 FPATH=$HOME/.zsh-completions:$FPATH
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -i
 
 # aliases
 alias ls='ls -GF'

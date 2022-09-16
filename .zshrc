@@ -54,3 +54,6 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 # prioritize my bin dir
 export PATH="$HOME/bin:$PATH"
+
+# load local config
+[[ ! -f ~/.zsh.local ]] || source ~/.zsh.local

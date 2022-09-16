@@ -22,7 +22,7 @@ function brew_cask_install () {
   if brew list --cask $1 &>/dev/null; then
     echo "$1 already installed"
   else
-    brew cask install $1
+    brew install --cask $1
   fi
 }
 

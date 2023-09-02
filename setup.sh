@@ -44,7 +44,8 @@ fi
 brew_install git
 brew_install zsh
 brew_install nvm
-brew install tmux
+brew_install tmux
+brew_install zsh-completions
 
 if brew list powerlevel10k &>/dev/null; then
   echo "powerlevel10k already installed"
@@ -52,7 +53,8 @@ else
   brew install romkatv/powerlevel10k/powerlevel10k
 fi
 
-brew_cask_install spectacle
+brew_cask_install rectangle
 brew_cask_install google-chrome
 brew_cask_install visual-studio-code
+brew_cask_install firefox
 echo "... 4. done"

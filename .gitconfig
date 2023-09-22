@@ -11,6 +11,7 @@
 	gf = ! git ls-files|grep --color=auto
 	l = log -20 --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
 	ll = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+	mom = merge origin/master
 	oops = commit --amend --no-edit
 	pl = pull
 	ps = push

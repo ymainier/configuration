@@ -50,6 +50,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 
+# yarn
+if which yarn 1>/dev/null 2>&1; then
+  export PATH="$(yarn global bin):$PATH"
+fi
+
 # prioritize my bin dir
 export PATH="$HOME/bin:$PATH"
 

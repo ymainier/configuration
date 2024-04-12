@@ -61,3 +61,5 @@
 [user]
 	email = yann.mainier@gmail.com
 	name = Yann Mainier
+[credential]
+	helper = store

@@ -63,3 +63,5 @@
 	name = Yann Mainier
 [credential]
 	helper = store
+[init]
+	defaultBranch = main

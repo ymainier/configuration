@@ -7,6 +7,10 @@ add_newline = true
 [aws]
 disabled = true
 
+[directory]
+truncation_length = 5
+fish_style_pwd_dir_length = 1
+
 [nodejs]
 detect_extensions = ['js', 'jsx', 'mjs', 'cjs', 'ts', 'tsx', 'mts', 'cts']
 # format = "via [$symbol$version$custom]($style) "

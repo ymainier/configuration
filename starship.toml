@@ -1,0 +1,17 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+[aws]
+disabled = true
+
+[nodejs]
+detect_extensions = ['js', 'jsx', 'mjs', 'cjs', 'ts', 'tsx', 'mts', 'cts']
+# format = "via [$symbol$version$custom]($style) "
+# 
+# [custom.node_mismatch]
+# command = "~/.config/starship/check_node_version.sh"
+# when = "test -f .nvmrc"
+# description = "Indicates if .nvmrc version doesn't match current Node.js version"

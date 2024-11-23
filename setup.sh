@@ -27,10 +27,12 @@ function brew_cask_install () {
 }
 
 echo "Copying config files..."
-FILES=(.zshrc .p10k.zsh .gitconfig .tmux.conf .vimrc)
+FILES=(.zshrc .gitconfig .tmux.conf .vimrc .zimrc)
 for file in ${FILES[@]}; do
   link_if_not_exists $CONFIGURATION_DIR/$file ~/$file
 done
+mkdir -p ~/.config
+link_if_not_exists $CONFIGURATION_DIR/starship.toml ~/.config/starship.toml
 
 echo "Installing stuff..."
 
@@ -45,13 +47,7 @@ brew_install git
 brew_install zsh
 brew_install nvm
 brew_install tmux
-brew_install zsh-completions
-
-if brew list powerlevel10k &>/dev/null; then
-  echo "powerlevel10k already installed"
-else
-  brew install romkatv/powerlevel10k/powerlevel10k
-fi
+brew_install starship
 
 brew_cask_install rectangle
 brew_cask_install google-chrome

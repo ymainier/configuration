@@ -137,11 +137,17 @@ alias ll='l -l'
 alias la='l -a'
 alias lla='l -la'
 alias g=git
+alias y=yarn
 alias o=open
 alias t=tmux
+alias c=code
 
 # env
+# enable color for ls
 export CLICOLOR=1
+# custom options for fzf
+export FZF_DEFAULT_OPTS="--reverse --height=30% --style=full --color=dark,hl:bright-cyan:underline,hl+:bright-cyan:underline:reverse,pointer:red,info:yellow,spinner:magenta,marker:magenta,marker:green,prompt:green --prompt='❯ ' --marker='+'"
+
 
 # history
 SAVEHIST=10000
@@ -170,3 +176,4 @@ export PATH="$HOME/bin:$PATH"
 
 # load local config
 [[ ! -f ~/.zsh.local ]] || source ~/.zsh.local
+

@@ -48,6 +48,9 @@ brew_install zsh
 brew_install nvm
 brew_install tmux
 brew_install starship
+brew install bat
+brew install fd
+brew install fzf
 
 brew_cask_install rectangle
 brew_cask_install google-chrome

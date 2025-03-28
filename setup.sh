@@ -4,7 +4,7 @@ CONFIGURATION_DIR=~/src/configuration
 
 function link_if_not_exists () {
 	if [ -f $2 ];then
-		echo >&2 "$2 already exists"
+		echo >&2 "  $2 already exists"
 	else
 		ln -shf $1 $2
 	fi
@@ -12,7 +12,7 @@ function link_if_not_exists () {
 
 function brew_install () {
   if brew list $1 &>/dev/null; then
-    echo "$1 already installed"
+    echo "  $1 already installed"
   else
     brew install $1
   fi
@@ -20,7 +20,7 @@ function brew_install () {
 
 function brew_cask_install () {
   if brew list --cask $1 &>/dev/null; then
-    echo "$1 already installed"
+    echo "  $1 already installed"
   else
     brew install --cask $1
   fi
@@ -37,23 +37,20 @@ link_if_not_exists $CONFIGURATION_DIR/starship.toml ~/.config/starship.toml
 echo "Installing stuff..."
 
 if type brew &>/dev/null; then
-  echo "brew already installed"
+  echo "  brew already installed"
 else
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
 
-brew_install git
-brew_install zsh
-brew_install nvm
-brew_install tmux
-brew_install starship
-brew install bat
-brew install fd
-brew install fzf
+BREW_PACKAGES="git zsh nvm tmux starship bat fd fzf"
+for package in $BREW_PACKAGES; do
+  brew_install $package
+done
 
-brew_cask_install rectangle
-brew_cask_install google-chrome
-brew_cask_install visual-studio-code
-brew_cask_install firefox
-echo "... 4. done"
+BREW_CASK_PACKAGES="rectangle google-chrome visual-studio-code firefox"
+for package in $BREW_CASK_PACKAGES; do
+  brew_cask_install $package
+done
+
+echo "done"

@@ -166,8 +166,35 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 
+autoload -U add-zsh-hook
+
+load-nvmrc() {
+  local nvmrc_path
+  nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvm_version_expected
+    nvm_version_expected=$(cat "${nvmrc_path}")
+    local nvmrc_node_version
+    nvmrc_node_version=$(nvm version "$nvm_version_expected")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      # # Not sure I want this install to run automatically
+      # nvm install
+    elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
+      nvm use
+    fi
+  elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+
 # yarn
-if which yarn 1>/dev/null 2>&1; then
+if (( ${+commands[yarn]} )); then
   export PATH="$(yarn global bin):$PATH"
 fi
 
@@ -176,4 +203,3 @@ export PATH="$HOME/bin:$PATH"
 
 # load local config
 [[ ! -f ~/.zsh.local ]] || source ~/.zsh.local
-

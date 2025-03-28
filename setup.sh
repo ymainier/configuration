@@ -33,6 +33,7 @@ for file in ${FILES[@]}; do
 done
 mkdir -p ~/.config
 link_if_not_exists $CONFIGURATION_DIR/starship.toml ~/.config/starship.toml
+touch ~/.zsh.local
 
 echo "Installing stuff..."
 

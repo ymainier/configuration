@@ -141,6 +141,7 @@ alias y=yarn
 alias o=open
 alias t=tmux
 alias c=code
+alias p=pnpm
 
 # env
 # enable color for ls

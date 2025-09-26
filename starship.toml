@@ -19,3 +19,7 @@ detect_extensions = ['js', 'jsx', 'mjs', 'cjs', 'ts', 'tsx', 'mts', 'cts']
 # command = "~/.config/starship/check_node_version.sh"
 # when = "test -f .nvmrc"
 # description = "Indicates if .nvmrc version doesn't match current Node.js version"
+
+[git_commit]
+only_detached = false
+

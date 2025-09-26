@@ -24,7 +24,7 @@
 [color]
 	ui = true
 [core]
-	editor = code --wait
+	editor = cursor --wait
 	whitespace = -trailing-space
 [diff]
 	# Use better, descriptive initials (c, i, w) instead of a/b.
@@ -35,10 +35,10 @@
 	wordRegex = .
 	# Display submodule-related information (commit listings)
 	submodule = log
-	# Use VSCode as default diff tool when running `git diff-tool`
-	tool = vscode
-[difftool "vscode"]
-	cmd = code --wait --diff $LOCAL $REMOTE
+	# Use cursor as default diff tool when running `git diff-tool`
+	tool = cursor
+[difftool "cursor"]
+	cmd = cursor --wait --diff $LOCAL $REMOTE
 [fetch]
 	# Auto-fetch submodule changes (sadly, won't auto-update)
 	recurseSubmodules = on-demand

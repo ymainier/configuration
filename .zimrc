@@ -41,6 +41,8 @@ zmodule zsh-users/zsh-completions --fpath src
 zmodule completion
 # fzf
 zmodule fzf
+# zoxide
+zmodule kiesman99/zim-zoxide
 
 #
 # Modules that must be initialized last

@@ -49,7 +49,7 @@ for package in $BREW_PACKAGES; do
   brew_install $package
 done
 
-BREW_CASK_PACKAGES="rectangle google-chrome visual-studio-code firefox"
+BREW_CASK_PACKAGES="rectangle"
 for package in $BREW_CASK_PACKAGES; do
   brew_cask_install $package
 done

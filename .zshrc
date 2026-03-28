@@ -137,10 +137,10 @@ alias ll='l -l'
 alias la='l -a'
 alias lla='l -la'
 alias g=git
-alias y=yarn
 alias o=open
 alias t=tmux
 alias c=code
+alias p=pnpm
 
 # env
 # enable color for ls
@@ -150,56 +150,30 @@ export FZF_DEFAULT_OPTS="--reverse --height=30% --style=full --color=dark,hl:bri
 
 
 # history
-SAVEHIST=10000
-HISTSIZE=10000
-setopt APPEND_HISTORY ## Addition of the history file
-setopt HIST_IGNORE_ALL_DUPS ## Ignore all repetitions of commands
+SAVEHIST=100000
+HISTSIZE=110000
 setopt HIST_FIND_NO_DUPS ## Do not display the string found earlier
-setopt HIST_IGNORE_DUPS ## Ignore rows if they are duplicates
 setopt HIST_REDUCE_BLANKS ## Delete empty lines from history file
 setopt HIST_IGNORE_SPACE ## Ignore a record starting with a space
 setopt HIST_NO_STORE ## Do not add history and fc commands to the history
 setopt SHARE_HISTORY # Share history between session/terminals
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
-
-autoload -U add-zsh-hook
-
-load-nvmrc() {
-  local nvmrc_path
-  nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path" ]; then
-    local nvm_version_expected
-    nvm_version_expected=$(cat "${nvmrc_path}")
-    local nvmrc_node_version
-    nvmrc_node_version=$(nvm version "$nvm_version_expected")
-
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      # # Not sure I want this install to run automatically
-      # nvm install
-    elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
-      nvm use
-    fi
-  elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
-
-# yarn
-if (( ${+commands[yarn]} )); then
-  export PATH="$(yarn global bin):$PATH"
-fi
-
 # prioritize my bin dir
 export PATH="$HOME/bin:$PATH"
 
+# load fnm
+eval "$(fnm env --use-on-cd --shell zsh)"
+
 # load local config
-[[ ! -f ~/.zsh.local ]] || source ~/.zsh.local
+[[ ! -f ~/.zshrc.local ]] || source ~/.zshrc.local
+
+# for uv
+. "$HOME/.local/bin/env"
+
+# pnpm
+export PNPM_HOME="/Users/ymainier/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

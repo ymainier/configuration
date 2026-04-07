@@ -168,7 +168,7 @@ eval "$(fnm env --use-on-cd --shell zsh)"
 [[ ! -f ~/.zshrc.local ]] || source ~/.zshrc.local
 
 # for uv
-. "$HOME/.local/bin/env"
+[[ ! -f ~/.local/bin/env ]] || source ~/.local/bin/env
 
 # pnpm
 export PNPM_HOME="/Users/ymainier/Library/pnpm"

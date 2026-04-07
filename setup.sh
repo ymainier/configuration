@@ -44,7 +44,7 @@ else
 fi
 
 
-BREW_PACKAGES="git zsh nvm tmux starship bat fd fzf"
+BREW_PACKAGES="git gh zsh fnm tmux starship bat fd fzf uv"
 for package in $BREW_PACKAGES; do
   brew_install $package
 done

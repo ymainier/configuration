@@ -27,13 +27,30 @@ function brew_cask_install () {
 }
 
 echo "Copying config files..."
-FILES=(.zshrc .gitconfig .tmux.conf .vimrc .zimrc)
+FILES=(.zshrc .gitconfig .gitignore_global .tmux.conf .vimrc .zimrc)
 for file in ${FILES[@]}; do
   link_if_not_exists $CONFIGURATION_DIR/$file ~/$file
 done
 mkdir -p ~/.config
 link_if_not_exists $CONFIGURATION_DIR/starship.toml ~/.config/starship.toml
 touch ~/.zsh.local
+
+# Machine-specific git config: identity is never inherited from the repo.
+# ~/.gitconfig sets user.useConfigOnly, so git refuses to commit until this is filled in.
+if [ ! -f ~/.gitconfig.local ]; then
+  cat > ~/.gitconfig.local <<'EOF'
+# Machine-specific git config. Not tracked: each machine has its own.
+# Set the email for THIS machine. Override user.signingKey too if this
+# machine's signing key is not ~/.ssh/id_rsa.pub.
+[user]
+	email =
+EOF
+  echo >&2 "  created ~/.gitconfig.local - set user.email before committing"
+fi
+
+# Referenced by gpg.ssh.allowedSignersFile in ~/.gitconfig; git errors on
+# every signature check if it is missing. Contents are per-machine.
+mkdir -p ~/.ssh && touch ~/.ssh/allowed_signers
 
 echo "Installing stuff..."
 

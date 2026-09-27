@@ -11,23 +11,23 @@
 	gf = ! git ls-files|grep --color=auto
 	l = log -20 --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
 	ll = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
-	mom = merge origin/master
+	mod = !git merge origin/$(git symbolic-ref --short refs/remotes/origin/HEAD | sed s@^origin/@@)
 	oops = commit --amend --no-edit
 	pl = pull
 	ps = push
 	pss = "!git push --set-upstream origin $(git branch --show-current)"
 	r = rebase
-	rom = rebase origin/master
+	rod = !git rebase origin/$(git symbolic-ref --short refs/remotes/origin/HEAD | sed s@^origin/@@)
 	s = status -s
 	sh = show
 	st = stash
-	mod = !git merge origin/$(git symbolic-ref --short refs/remotes/origin/HEAD | sed s@^origin/@@)
-	rod = !git rebase origin/$(git symbolic-ref --short refs/remotes/origin/HEAD | sed s@^origin/@@)
 [color]
 	ui = true
 [core]
 	editor = code --wait
 	whitespace = -trailing-space
+	# Machine-agnostic ignores; symlinked from this repo by setup.sh
+	excludesFile = ~/.gitignore_global
 [diff]
 	# Use better, descriptive initials (c, i, w) instead of a/b.
 	mnemonicPrefix = true
@@ -62,15 +62,26 @@
 	default = simple
 	autoSetupRemote = true
 [user]
-	email = yann.mainier@gmail.com
 	name = Yann Mainier
+	# Never guess the identity: email must be set in ~/.gitconfig.local
+	useConfigOnly = true
+	# Default signing key; other machines override this in ~/.gitconfig.local
+	signingKey = ~/.ssh/id_rsa.pub
+[commit]
+	gpgsign = true
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	allowedSignersFile = ~/.ssh/allowed_signers
 [init]
 	defaultBranch = main
-[include]
-	path = ~/.gitconfig.local
 [rerere]
 	enabled = true
 [merge]
 	conflictstyle = zdiff3
 [branch]
 	sort = -committerdate
+
+# Machine-specific overrides (email, signing key). Last, so it takes precedence.
+[include]
+	path = ~/.gitconfig.local

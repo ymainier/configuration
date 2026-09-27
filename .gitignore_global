@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Editors / IDEs
+.idea/
+*.swp
+*.swo
+*~
+
+# Local tooling scratch
+.claude/

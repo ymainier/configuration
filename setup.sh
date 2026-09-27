@@ -33,7 +33,7 @@ for file in ${FILES[@]}; do
 done
 mkdir -p ~/.config
 link_if_not_exists $CONFIGURATION_DIR/starship.toml ~/.config/starship.toml
-touch ~/.zsh.local
+touch ~/.zshrc.local
 
 # Machine-specific git config: identity is never inherited from the repo.
 # ~/.gitconfig sets user.useConfigOnly, so git refuses to commit until this is filled in.

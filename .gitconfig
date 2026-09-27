@@ -21,6 +21,8 @@
 	s = status -s
 	sh = show
 	st = stash
+	mod = !git merge origin/$(git symbolic-ref --short refs/remotes/origin/HEAD | sed s@^origin/@@)
+	rod = !git rebase origin/$(git symbolic-ref --short refs/remotes/origin/HEAD | sed s@^origin/@@)
 [color]
 	ui = true
 [core]
@@ -42,6 +44,7 @@
 [fetch]
 	# Auto-fetch submodule changes (sadly, won't auto-update)
 	recurseSubmodules = on-demand
+	prune = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	process = git-lfs filter-process
@@ -56,14 +59,18 @@
 [pull]
 	rebase = merges
 [push]
-	default = upstream
+	default = simple
 	autoSetupRemote = true
 [user]
 	email = yann.mainier@gmail.com
 	name = Yann Mainier
-[credential]
-	helper = store
 [init]
 	defaultBranch = main
 [include]
 	path = ~/.gitconfig.local
+[rerere]
+	enabled = true
+[merge]
+	conflictstyle = zdiff3
+[branch]
+	sort = -committerdate

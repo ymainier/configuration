@@ -10,7 +10,8 @@ Commit the change like any other.
 1. Install [brew](https://brew.sh/)
 2. `git clone git@github.com:ymainier/configuration.git ~/src/configuration && ~/src/configuration/setup.sh`
 3. **Set this machine's git identity** — see below. Until you do, git refuses to commit.
-4. [Dracula theme for terminal.app](https://draculatheme.com/terminal)
+4. `open 'Github Dark.terminal'` to import the terminal.app profile, then set it as the
+   default in Terminal › Settings › Profiles.
 
 `setup.sh` is idempotent: it skips anything already linked or installed, so it is safe
 to re-run after pulling.
@@ -73,6 +74,7 @@ key at the expected path does not: it signs, and the commits show Unverified on 
 | `.zimrc` | [Zim](https://zimfw.sh/) module list. Prompt is starship. |
 | `starship.toml` | Linked to `~/.config/starship.toml`. |
 | `.tmux.conf`, `.vimrc` | |
+| `Github Dark.terminal` | terminal.app profile: colours, font, cursor. Imported, not symlinked. |
 | `setup.sh` | Symlinks the above, installs brew packages and casks. |
 
 ## Not tracked, per machine

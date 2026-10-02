@@ -46,7 +46,11 @@ file sets wins. The test for where a setting belongs:
 
 Only the first belongs in `~/.gitconfig.local`. `gpg.ssh.allowedSignersFile` is the same
 path everywhere even though its contents differ per machine, so it lives in the shared
-file. `user.signingKey` is a genuinely different key, so it does not.
+file. `user.signingKey` is a genuinely different key, so it does not. Same for
+`credential.helper`: `gh auth setup-git` writes an absolute `gh` path
+(`/opt/homebrew/...` vs `/usr/local/...`), so that block belongs in the local file.
+Because `~/.gitconfig` is a symlink into this repo, running that command would commit
+the path from whichever machine you ran it on.
 
 Keep `[include]` last. It used to sit mid-file, which silently made every setting after it
 impossible to override.
@@ -81,6 +85,6 @@ key at the expected path does not: it signs, and the commits show Unverified on 
 
 | File | Purpose |
 |---|---|
-| `~/.gitconfig.local` | Git identity and signing key. Required. |
+| `~/.gitconfig.local` | Git identity and signing key. Required. Also `gh` credential helper. |
 | `~/.zshrc.local` | Shell extras. Sourced by `.zshrc` if present. |
 | `~/.ssh/allowed_signers` | Public keys trusted for signature verification. |

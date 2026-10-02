@@ -1,4 +1,5 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
+export HOMEBREW_CASK_OPTS="--appdir=${HOME}/Applications"
 fpath=(~/.zsh/completions $fpath)
 
 # Start configuration added by Zim install {{{
@@ -25,10 +26,10 @@ setopt HIST_IGNORE_ALL_DUPS
 bindkey -e
 
 # Prompt for spelling correction of commands.
-#setopt CORRECT
+setopt CORRECT
 
 # Customize spelling correction prompt.
-#SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
+SPROMPT='zsh: correct %F{red}%R%f to %F{green}%r%f [nyae]? '
 
 # Remove path separator from WORDCHARS.
 WORDCHARS=${WORDCHARS//[\/]}
@@ -171,7 +172,7 @@ eval "$(fnm env --use-on-cd --shell zsh)"
 [[ ! -f ~/.zshrc.local ]] || source ~/.zshrc.local
 
 # for uv
-. "$HOME/.local/bin/env"
+[[ ! -f ~/.local/bin/env ]] || source ~/.local/bin/env
 
 # pnpm
 export PNPM_HOME="/Users/ymainier/Library/pnpm"
@@ -180,3 +181,4 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+

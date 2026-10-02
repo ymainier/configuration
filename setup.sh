@@ -42,6 +42,11 @@ if [ ! -f ~/.gitconfig.local ]; then
 # Machine-specific git config. Not tracked: each machine has its own.
 # Set the email for THIS machine. Override user.signingKey too if this
 # machine's signing key is not ~/.ssh/id_rsa.pub.
+# gh auth setup-git writes a brew-prefixed helper into ~/.gitconfig, which
+# is a symlink into this repo. Put that block here instead:
+# [credential "https://github.com"]
+# 	helper =
+# 	helper = !$(brew --prefix)/bin/gh auth git-credential
 [user]
 	email =
 EOF
@@ -66,7 +71,7 @@ for package in $BREW_PACKAGES; do
   brew_install $package
 done
 
-BREW_CASK_PACKAGES="rectangle google-chrome visual-studio-code"
+BREW_CASK_PACKAGES="rectangle"
 for package in $BREW_CASK_PACKAGES; do
   brew_cask_install $package
 done

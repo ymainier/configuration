@@ -37,9 +37,9 @@
 	wordRegex = .
 	# Display submodule-related information (commit listings)
 	submodule = log
-	# Use VSCode as default diff tool when running `git diff-tool`
-	tool = vscode
-[difftool "vscode"]
+	# Use code as default diff tool when running `git diff-tool`
+	tool = code
+[difftool "code"]
 	cmd = code --wait --diff $LOCAL $REMOTE
 [fetch]
 	# Auto-fetch submodule changes (sadly, won't auto-update)
@@ -82,6 +82,7 @@
 [branch]
 	sort = -committerdate
 
-# Machine-specific overrides (email, signing key). Last, so it takes precedence.
+# Machine-specific overrides (email, signing key, credential helper path).
+# Last, so it takes precedence.
 [include]
 	path = ~/.gitconfig.local

@@ -82,12 +82,7 @@
 [branch]
 	sort = -committerdate
 
-# Machine-specific overrides (email, signing key). Last, so it takes precedence.
+# Machine-specific overrides (email, signing key, credential helper path).
+# Last, so it takes precedence.
 [include]
 	path = ~/.gitconfig.local
-[credential "https://github.com"]
-	helper = 
-	helper = !/opt/homebrew/bin/gh auth git-credential
-[credential "https://gist.github.com"]
-	helper = 
-	helper = !/opt/homebrew/bin/gh auth git-credential

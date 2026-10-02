@@ -1,5 +1,6 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 export HOMEBREW_CASK_OPTS="--appdir=${HOME}/Applications"
+fpath=(~/.zsh/completions $fpath)
 
 # Start configuration added by Zim install {{{
 #
@@ -148,7 +149,9 @@ alias p=pnpm
 export CLICOLOR=1
 # custom options for fzf
 export FZF_DEFAULT_OPTS="--reverse --height=30% --style=full --color=dark,hl:bright-cyan:underline,hl+:bright-cyan:underline:reverse,pointer:red,info:yellow,spinner:magenta,marker:magenta,marker:green,prompt:green --prompt='❯ ' --marker='+'"
-
+# better colors for grep
+export GREP_COLOR='1;30;43'
+export GREP_COLORS='mt=1;30;43'
 
 # history
 SAVEHIST=100000
